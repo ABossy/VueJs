@@ -5,14 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Projet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Liste des Projets</h1>
+    <div class="container">
+    <h1><strong>Liste des Projets</strong></h1>
+    <table id="datatable"class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Image</th>
+                <th>ID</th>
+                <th>Status</th>
+                <th>Nom</th>
+                <th>Date de Création</th>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
     <script src="projet.js"></script>
 </body>
 </html>

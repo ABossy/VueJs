@@ -1,5 +1,4 @@
-
-let tab = [
+let datas = [
     {
       "_id": "5b3e3da860e7c6eeb88e3ceb",
       "isActive": true,
@@ -190,3 +189,16 @@ let tab = [
       "creation": "Tue Feb 25 1975 21:31:07 GMT+0100 (Central European Standard Time)"
     }
   ]
+
+
+$(function(){
+
+  function createTab() {
+      for (let i = 0; i < datas.length; i++){
+    $('#datatable').append(`<tr><td><img src=${datas[i].picture}></td><td>${datas[i]._id}
+    </td></td><td>${datas[i].isActive}</td></td><td>${datas[i].name}</td><td>${datas[i].creation}</td></tr>`);
+     
+  }
+}
+  createTab()
+});

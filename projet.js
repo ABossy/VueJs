@@ -192,15 +192,42 @@ let datas = [
 
   
   $(function(){
-    // permet d'appliquer l'autocomplementation sur les noms stockés dans la variable nom.
+// recuperation données clavier.
+    $('#searchButton').click(function(){
+      let valeur = $('#tags').val()
+      $('#datatable > tbody').empty()
+      let table = afficheProjet(valeur);
+      createTab(table)
+    });
+
+// permet d'appliquer l'autocomplementation sur les noms stockés dans la variable nom.
     let nom =[]
       $("#tags").autocomplete({
-        source:nom,      
+        source:nom,       
        
     });
+
+// tri par date 
+let flux = true;
+    $('#triDate').click(function(){
+      if(flux){
+        sortByDate(datas)
+        
+      } else {
+        sortByDate(datas).reverse();
+
+      }
+      flux = !flux
+      createTab(datas); 
+    });
+
   
+
+//-----------------------------FUNCTIONS------------------------------------------------------------------
+
 // création du tableau 
   function createTab(tab) {
+    $('#datatable > tbody').empty();
       for (let i = 0; i < tab.length; i++){
     $('#datatable').append(`<tr><td><img src=${tab[i].picture}></td>
     <td>${tab[i].isActive ? 'Oui':'Non'}</td>
@@ -209,49 +236,61 @@ let datas = [
      
   }
 }
-  createTab(datas); 
 
 // permet d'afficher dans la console les projets qui commencent par "P"
-  function research(){
-      for (let i = 0; i< datas.length;i++){
-          if(datas[i].name.startsWith('P')) {
-            console.log(datas[i].name)
-          }
-        }
-    }
-    research(); 
-
-// permet de pousser dans mon tableau nom la datas.name
-  function autocomplete(){
-    for (let i =0; i< datas.length;i++){
-     nom.push(datas[i].name) 
+function research(){
+  for (let i = 0; i< datas.length;i++){
+    if(datas[i].name.startsWith('P')) {
+      console.log(datas[i].name)
     }
   }
- autocomplete()
+}
+research(); 
 
+// permet de pousser dans mon tableau nom la datas.name
+function autocomplete(){
+  for (let i =0; i< datas.length;i++){
+    nom.push(datas[i].name) 
+  }
+}
 
+autocomplete()
 
- // recuperation données clavier.
- $('#searchButton').click(function(){
-  let valeur = $('#tags').val()
-   $('#datatable > tbody').empty()
-   let table = afficheProjet(valeur);
-   createTab(table)
-  });
 
 //verifie la valeur avec le nom du projet et l'ajoute au tableau tabOne
 function afficheProjet(valeur){
-  let tabOne = [];
+  let tabOneProject = [];
   for(let i=0;i< datas.length; i++){
-    if(datas[i].name == valeur){
-      tabOne.push(datas[i])
+    if(datas[i].name.startsWith(valeur.toUpperCase())){
+      tabOneProject.push(datas[i])
       
     }
   }
-  console.log('tabone',tabOne)
-  return tabOne;
+  return tabOneProject;
   
 }
 
+// permet de convertir la date version texte en version date
+function dateSort(){
+  for(let i=0; i< datas.length;i++){
+    datas[i].creation = new Date(datas[i].creation)   
+  }
+  console.log(datas);
+}
+dateSort()
+
+// permet de trier les dates en comparant 2 objets (a et b)
+function sortByDate(datas){
+  datas.sort(function(a,b){
+    return b.creation - a.creation;
+  });
+  return datas;
+
+}
+
+
+
+
+createTab(datas); 
 
 });

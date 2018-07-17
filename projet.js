@@ -190,15 +190,68 @@ let datas = [
     }
   ]
 
-
-$(function(){
-
-  function createTab() {
-      for (let i = 0; i < datas.length; i++){
-    $('#datatable').append(`<tr><td><img src=${datas[i].picture}></td><td>${datas[i]._id}
-    </td></td><td>${datas[i].isActive}</td></td><td>${datas[i].name}</td><td>${datas[i].creation}</td></tr>`);
+  
+  $(function(){
+    // permet d'appliquer l'autocomplementation sur les noms stockés dans la variable nom.
+    let nom =[]
+      $("#tags").autocomplete({
+        source:nom,      
+       
+    });
+  
+// création du tableau 
+  function createTab(tab) {
+      for (let i = 0; i < tab.length; i++){
+    $('#datatable').append(`<tr><td><img src=${tab[i].picture}></td>
+    <td>${tab[i].isActive ? 'Oui':'Non'}</td>
+    <td>${tab[i].name}</td>
+    <td>${tab[i].creation}</td></tr>`);
      
   }
 }
-  createTab()
+  createTab(datas); 
+
+// permet d'afficher dans la console les projets qui commencent par "P"
+  function research(){
+      for (let i = 0; i< datas.length;i++){
+          if(datas[i].name.startsWith('P')) {
+            console.log(datas[i].name)
+          }
+        }
+    }
+    research(); 
+
+// permet de pousser dans mon tableau nom la datas.name
+  function autocomplete(){
+    for (let i =0; i< datas.length;i++){
+     nom.push(datas[i].name) 
+    }
+  }
+ autocomplete()
+
+
+
+ // recuperation données clavier.
+ $('#searchButton').click(function(){
+  let valeur = $('#tags').val()
+   $('#datatable > tbody').empty()
+   let table = afficheProjet(valeur);
+   createTab(table)
+  });
+
+//verifie la valeur avec le nom du projet et l'ajoute au tableau tabOne
+function afficheProjet(valeur){
+  let tabOne = [];
+  for(let i=0;i< datas.length; i++){
+    if(datas[i].name == valeur){
+      tabOne.push(datas[i])
+      
+    }
+  }
+  console.log('tabone',tabOne)
+  return tabOne;
+  
+}
+
+
 });

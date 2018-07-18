@@ -235,17 +235,25 @@ $('#triNom').click(function(){
   createTab(datas); 
 });
 
+// ajout d'un projet
+$("#sendValid").click(function(){
+ addProject();
+ createTab(datas);
+
+});
+
+
 //-----------------------------FUNCTIONS------------------------------------------------------------------
 
 // création du tableau 
-  function createTab(tab) {
-    $('#datatable > tbody').empty();
-      for (let i = 0; i < tab.length; i++){
+function createTab(tab) {
+  $('#datatable > tbody').empty();
+  for (let i = 0; i < tab.length; i++){
     $('#datatable').append(`<tr><td><img src=${tab[i].picture}></td>
     <td>${tab[i].isActive ? 'Oui':'Non'}</td>
     <td>${tab[i].name}</td>
     <td>${tab[i].creation}</td></tr>`);
-     
+    
   }
 }
 
@@ -265,7 +273,6 @@ function autocomplete(){
     nom.push(datas[i].name) 
   }
 }
-
 autocomplete()
 
 
@@ -297,24 +304,43 @@ function sortByDate(datas){
     return b.creation - a.creation;
   });
   return datas;
-
+  
 }
 
 // permet de trier les noms
 function sortByName(){
- datas.sort(function(a, b) {
-  if (a.name < b.name)
-     return -1;
-  if (a.name > b.name)
-     return 1;
-  // a doit être égal à b
-  return 0;
-});
-return datas;
+  datas.sort(function(a, b) {
+    if (a.name < b.name)
+    return -1;
+    if (a.name > b.name)
+    return 1;
+    // a doit être égal à b
+    return 0;
+  });
+  return datas;
+}
+sortByName();
+
+// function ajout projet
+function addProject(){
+  let image = document.getElementById("image").value;
+  let nomProjet = document.getElementById("name").value;
+  let dateProjet= document.getElementById("date").value;
+  let dateObject = new Date(dateProjet);
+  let status = $('#status').prop('checked');//permet de récuperer la valeur du status 
+
+// j'ajoute les valeurs au tableau datas.
+  datas.push({
+    picture: image, 
+    isActive: status,
+    name: nomProjet, 
+    creation :dateObject});
+  
 }
 
+addProject();
 
-sortByName();
+
 createTab(datas); 
 
 });

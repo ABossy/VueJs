@@ -44,14 +44,14 @@ Voici quelques fonctionnalités que nous souhaitons :
 
 ### Mise en place d'une page
 
-- [ ] Créez une simple page HTML avec un titre.
-- [ ] Ajoutez les libraries jQuery et Bootstrap qui nous serviront pour la suite du développement.
+- [x] Créez une simple page HTML avec un titre.
+- [x] Ajoutez les libraries jQuery et Bootstrap qui nous serviront pour la suite du développement.
 
 Une fois que tout fonctionne, faites un premier commit ( vous aurez sûrement besoin d'initialiser le repository git ). Quelle est la commande à utiliser ? 🤔
 
 ### Récupération des données et affichage simple.
 
-- [ ] Créez dans votre fichier Javascript une variable dont la valeur correspond au tableau suivant :
+- [x] Créez dans votre fichier Javascript une variable dont la valeur correspond au tableau suivant :
 
 <details>
  <summary>Exemple de données ( cliquer pour dérouler )</summary>
@@ -263,9 +263,9 @@ Nous voulons afficher une table avec sur chaque ligne les informations d'un proj
 - Le statut ( actif ou non ).
 - La date de création.
 
-- [ ] Ajoutez dans votre document html une table avec une en tête comprenant ces 4 colonnes.
+- [x] Ajoutez dans votre document html une table avec une en tête comprenant ces 4 colonnes.
 
-- [ ] Enfin, affichez autant de lignes dans la table qu'il y a d'éléments dans votre tableau.
+- [x] Enfin, affichez autant de lignes dans la table qu'il y a d'éléments dans votre tableau.
 
 Voici un exemple de résultat :
 
@@ -289,17 +289,17 @@ function research() {
 }
 ```
 
-- [ ] Complétez la fonction, vérifiez notamment qu'il y a 5 projets commençant par la lettre `P`, mais un seul commençant par les lettres `PO`.
+- [x] Complétez la fonction, vérifiez notamment qu'il y a 5 projets commençant par la lettre `P`, mais un seul commençant par les lettres `PO`.
 
-- [ ] Ajoutez un input au dessus du tableau et faites en sorte que à chaque fois que l'utilisateur tape une lettre, on lance la fonction de recherche et on met à jour la vue.
+- [x] Ajoutez un input au dessus du tableau et faites en sorte que à chaque fois que l'utilisateur tape une lettre, on lance la fonction de recherche et on met à jour la vue.
 
-- [ ] Les noms des projets étant en majuscule, convertissez la saisie de l'utilisateur avant de lancer votre fonction de recherche.
+- [x] Les noms des projets étant en majuscule, convertissez la saisie de l'utilisateur avant de lancer votre fonction de recherche.
 
 Voici un exemple d'interface auquelle vous [pourriez parvenir](http://recordit.co/nFSyim9OGw)
 
 ## Trier par date croissante et/ou décroissante.
 
-- [ ] Nous allons ajouter une icone dans le header de notre table, lorsque nous cliquerons dessus le tableau sera trié du plus récent au plus ancien.
+- [x] Nous allons ajouter une icone dans le header de notre table, lorsque nous cliquerons dessus le tableau sera trié du plus récent au plus ancien.
 
 Vous pouvez par exemple utiliser la très connue librarie [Font Awesome](https://fontawesome.com/how-to-use/on-the-web/setup/getting-started?using=web-fonts-with-css)
 
@@ -307,11 +307,11 @@ La fonction [sort](https://developer.mozilla.org/fr/docs/Web/JavaScript/Referenc
 
 Voici un exemple d'interface à laquelle vous [pourriez parvenir](http://recordit.co/Uvb85D470w)
 
-- [ ] Autre idée : trier par ordre alphabétique les noms des projets.
+- [x] Autre idée : trier par ordre alphabétique les noms des projets.
 
 ## Ajouter un nouveau projet.
 
-- [ ] Faites un formulaire d'ajout d'un projet, je vous propose pour cela d'utiliser les [fenêtres modales de bootstrap](https://getbootstrap.com/docs/4.0/components/modal/) afin d'avoir le formulaire dans une modale.
+- [x] Faites un formulaire d'ajout d'un projet, je vous propose pour cela d'utiliser les [fenêtres modales de bootstrap](https://getbootstrap.com/docs/4.0/components/modal/) afin d'avoir le formulaire dans une modale.
 
 Voici un exemple de résultats :
 

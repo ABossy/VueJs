@@ -221,7 +221,19 @@ let flux = true;
       createTab(datas); 
     });
 
-  
+// tri par nom
+let triNom = true;
+$('#triNom').click(function(){
+  if(triNom){
+    sortByName(datas)
+    
+  } else {
+    sortByName(datas).reverse();
+
+  }
+  triNom = !triNom
+  createTab(datas); 
+});
 
 //-----------------------------FUNCTIONS------------------------------------------------------------------
 
@@ -288,9 +300,21 @@ function sortByDate(datas){
 
 }
 
+// permet de trier les noms
+function sortByName(){
+ datas.sort(function(a, b) {
+  if (a.name < b.name)
+     return -1;
+  if (a.name > b.name)
+     return 1;
+  // a doit être égal à b
+  return 0;
+});
+return datas;
+}
 
 
-
+sortByName();
 createTab(datas); 
 
 });
